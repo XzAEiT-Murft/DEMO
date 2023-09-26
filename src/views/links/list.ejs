@@ -1,0 +1,37 @@
+<%- include('../main') %>
+<%- include('../partials/navbar.ejs') %>
+<%- include('../partials/message.ejs')%>
+<div class="container p-4">
+    <div class="row">
+        <% if (lis_links.length > 0) { %>
+            <% lis_links.forEach(function(link) { %>
+                <div class="col-md-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <a href="<%= link.url %>" target="_blank">
+                                <h3 class="card-title text-uppercase"><%= link.title %></h3>
+                            </a>
+                            <p class="m-2"><%= link.description %></p>
+                            <p><%= helpers.timeago(link.created_at) %> <p>
+                            <a href="/links/delete/<%= link.id %>" class="btn btn-danger">Eliminar link</a>
+                            <a href="/links/edit/<%= link.id %>" class="btn btn-secondary">Editar</a>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <div class="col-md-4 mx-auto">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h1>Actualmente no tienes links guardados.</h1>
+                        <div class="form-group mt-4">
+                            <a href="/links/add"><h2>Crea uno</h2></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>

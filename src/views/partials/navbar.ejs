@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark  ">
+  <div class="container">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">DEMO SAVE LINKS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <% if (!user) { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/c_account">Crear cuenta</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Iniciar sesión</a>
+            </li>
+          <% } %>
+          <% if (user) { %>           
+            <li class="nav-item">
+              <a class="nav-link" href="/links">links guardados</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/links/add">agregar link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Perfil
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/profile">Perfil</a>
+                <a class="dropdown-item" href="/profile/edit_profile">Editar perfil</a>
+                <a class="dropdown-item" href="/profile/delete_profile">Eliminar perfil</a>
+                <a class="dropdown-item" href="/close_session">Cerrar sesion</a>
+            </li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
